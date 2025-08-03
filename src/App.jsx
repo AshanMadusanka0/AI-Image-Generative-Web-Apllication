@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Link, Routes, Route } from 'react-router-dom';
 import { Home, CreatePost } from './pages';
 import { logo } from './assets';
+import './index.css';
 
 const App = () => {
   return (
