@@ -1,7 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+import {getRandomPrompt} from '../utils';
+import { FormField,Loader } from '../components';
 
 const CreatePost = () => {
-  return <h1>Create Post</h1>;
+
+  const navigate = useNavigate();
+
+  const [form, setForm] = useState({
+    name:'',
+    prompt:'',
+    photo:'',
+  });
+
+  const [generatingImg, SetGeneratingImg] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  return(
+  <section className='max-w-7xl mx-auto'>
+   <div>
+        <h1 className="font-extrabold text-[#222328] text-[32px]">Create</h1>
+        <p className='mt-2 text-[#666e75] text-[16px] max-w[500px]'>create imaginative and vissually stunning images through DALL-E AI and share them with the community</p>
+
+      </div>
+
+  </section>
+   
+  )
 };
 
 export default CreatePost;
