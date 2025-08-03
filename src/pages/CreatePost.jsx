@@ -24,12 +24,19 @@ const handleSubmit = () => {
 }
 
 const handleChange = (e) => {
+  setForm({ ...form, [e.target.name]: e.target.value })
 }
 
 const handleSurpriseMe = () => {
+  const randomPrompt = getRandomPrompt(form.prompt);
+  setForm({ ...form, prompt: randomPrompt });
+  
 
 }
 
+const generateImage  = () =>{
+
+}
 
   return(
   <section className='max-w-7xl mx-auto'>
@@ -88,6 +95,34 @@ const handleSurpriseMe = () => {
 
         </div>
        </div>
+
+        <div className="mt-5 flex gap-5">
+         <button type="button"
+         onClick={generateImage}
+         className="text-white bg-green-700 font-medium
+         rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+        >
+
+          {generatingImg ? 'Generating..':'Generate'}
+
+         </button>
+       </div>
+
+       <div className="mt-10">
+        <p className='mt-1 text-[#666e75] text-[14px]'>
+          Once you have created the image you want,you can share
+          it with others in the community
+        </p>
+
+        <button
+        type="submit"
+        className="mt-1 text-white bg-blue-700 font-medium
+         rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+        >
+         {loading ? 'Sharing...' : 'Share with the community'}
+        </button>
+       </div>
+    
       </form>
 
   </section>
